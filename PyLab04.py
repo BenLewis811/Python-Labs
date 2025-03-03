@@ -56,7 +56,11 @@ print("""
 
     "First you will learn to summon me from the sword", your feathered friend says.
     """)
-def ducktoggle():
+def toggle_duck(current_status):
+    """
+    This function toggles the duck on and off. It prints whether the duck is on or off,
+    and returns the status of the toggled duck.
+    """
 
 
 
@@ -70,6 +74,10 @@ print("""
     """)
 
 def quack():
+    """
+    This function quacks the duck, and amplifies the hero's damage if the duck is toggled on. 
+    If the duck is toggled off it does not amplify damage.
+    """
 
 
 ################################################
@@ -83,6 +91,10 @@ print("""
     mighty quack."
     """)    
 def attack():
+    """
+    This is the attack function. It will print how much you attacked for, and how much health the
+    enemy has left. If the enemy has no health it will print that the enemy is defeated
+    """
 
 
 ################################################
@@ -97,12 +109,17 @@ print("""
     power of 2. Can you withstand its force?"
     """)   
 def defend():
-
+    """
+    Reduces the hero's health by the enemy's attack power, multiplied by a random integer. If the
+    duck is toggled on the damage will be divided by 5
+    """
 
 ################################################
 # 7. Attack simulation
 def attacksim():
-    
+    """
+    Simulates the battle. This is the main function of the lab. 
+    """
 
 
     
