@@ -6,9 +6,9 @@
   Partner 1:  
   Partner 1s contributions:
 
-  Partner 2: 
+  Partner 2: Ben Lewis
   Partner 2s contributions: 
-  
+  3 and 5, opening narrative
   Date: 
       
       
@@ -31,21 +31,25 @@
 
 
 # Put any import statements here
-
+import math
+import random
 
 # character attributes
-def myhero():
-    
-
+# def myhero():
 
 ################################################
 # 1. Set the stage with a short introduction
-
-
+print("After you leave the labyrinth, you approach a misty swamp.")
+print("Before entering the swamp, you decide to sharpen your sword.")
+print("As you pull the sword out, you realize there is a new golden jewel on the hilt.")
+print("You inspect the jewel, and in a flash a duck appears.")
+print("You find the Duck can magically increase your strength, and can be toggle with the jewel")
 
 ################################################
 # 2. Introduce your duck
-
+print("The ducks name is ducky momo")
+duckyName = "Ducky Momo"
+duckyColor = "Yellow"
 
 
 
@@ -56,12 +60,19 @@ print("""
 
     "First you will learn to summon me from the sword", your feathered friend says.
     """)
+
 def toggle_duck(current_status):
     """
-    This function toggles the duck on and off. It prints whether the duck is on or off,
-    and returns the status of the toggled duck.
+    This function toggles the duck on and off. It returns the opposite of the parameter,
+     them prints whether the duck is on or off. It then returns the status of the toggled duck.
     """
 
+    if current_status == True:
+        print("The duck has been toggled off")
+        return False
+    else:
+        print("The Duck has been toggled on")
+        return True
 
 
 
@@ -87,14 +98,24 @@ print("""
 
     "You already know how to do battle, but with me by your side, you will be much more effective."
 
-    "Consider this hay bale with 10 health points.  Can you defeat it?  Try both with and without my 
-    mighty quack."
+    "Consider this hay bale with 10 health points.  Can you defeat it?  Try both with and without 
+    my mighty quack."
     """)    
-def attack():
+def attack(power, enemy_name, enemy_health):
     """
     This is the attack function. It will print how much you attacked for, and how much health the
     enemy has left. If the enemy has no health it will print that the enemy is defeated
     """
+    attack = power * random.randint(1,6)
+    print(f"You attacked {enemy_name} for {attack} damage")
+
+    enemy_health = enemy_health - attack
+    if enemy_health > 0:
+        print(f"{enemy_name} has {enemy_health} hitpoints left.")
+        return enemy_health
+    else:
+        print(f"You have slain {enemy_name}")
+        return 0
 
 
 ################################################
