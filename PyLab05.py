@@ -181,7 +181,13 @@ Weakest: Blight Beetle took 12 to defeat
 
 ################################################
 # 4. Set the stage
-# display a short introduction
+#display a short introduction
+print("You travel with your duck, into a great swamp.")
+print("A thick mist clouds your vision, as your feet sink in the mud.")
+print("Suddenly, a hunched figure appears. You approach it with your valiant duck by your side.")
+print("The figure asks for assistance in crossing the great swamp.")
+print("You agree, however the figure tells you to beware of the ten clearings.")
+print("As you head into the first clearing, a battle ensues.")
 
 
 
@@ -197,18 +203,18 @@ hero_damages = []
 
 # loop through all 10 clearings and with a 50% chance to encounter
 for clearing in range(1, 11):
-    print(f"\nYou come to clearing {clearing} on your journey")
+    print(f"\nYou come to clearing {clearing} on your journey.")
     if random.random() < 0.5:
-        print("You do not encounter any enemies and continue on your journey")
+        print("You do not encounter any enemies and continue on your journey.")
         continue
     
     enemy = random.choice(ENEMIES)
     enemy_name, enemy_pwr, enemy_hp = enemy
     current_enemy_hp = enemy_hp
     enemies_encountered.append(enemy_name)
-    print(f"A vicious {enemy_name} emerges from the swamp")
-    print(f"It has {enemy_pwr} power and {enemy_hp} health")
-    print(f"You have {hero_health} health and the {enemy_name} has {current_enemy_hp} health")
+    print(f"A vicious {enemy_name} emerges from the swamp.")
+    print(f"It has {enemy_pwr} power and {enemy_hp} health.")
+    print(f"You have {hero_health} health and the {enemy_name} has {current_enemy_hp} health.")
     
     hero_dmg_current = 0
     enemy_dmg_current = 0
@@ -233,7 +239,7 @@ for clearing in range(1, 11):
         if hero_health <= 0:
             break
         
-        print(f"You have {hero_health} health and the {enemy_name} has {current_enemy_hp} health")
+        print(f"You have {hero_health} health and the {enemy_name} has {current_enemy_hp} health.")
     
     hero_damages.append(hero_dmg_current)
     enemy_damages.append(enemy_dmg_current)
@@ -244,7 +250,15 @@ for clearing in range(1, 11):
 ################################################
 # 6. Closing narrative with statistics
 if hero_health > 0:
+  print("At long last, you emerge from the tenth clearing victorious.")
+  print("It looks like Ducky Momo and the mysterious figure are alive as well.")
+  print("As you leave the swamp, you enter the Forbidden Forest.")
 
-else:
-    
+if hero_health <= 0:
+  print("Unfortunately, you did not survive this encounter.")
+  print("With you dead, Ducky Momo is left to fight through the swamp by himself.")
+  print("Incredibly, he doesn't struggle at all to clear the remaining monsters.")
+  print("It is unclear why he didn't help earlier if he was so strong.")
+
+#Statstics
 display_battle_stats(enemies_encountered, enemy_damages, hero_damages)
