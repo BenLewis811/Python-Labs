@@ -39,7 +39,13 @@ import random
 
 ################################################
 # 1. setup hero stats and enemies
+hero_health = 50
+hero_power = 10  
+duck_status = True  
 
+enemies_encountered = []
+enemy_damages = []
+hero_damages = []
 # enemies 2d tuple
 ENEMIES = (
     ('fluffy', 2, 10),
@@ -156,9 +162,9 @@ Weakest: Blight Beetle took 12 to defeat
         # Most and least dangerous enemies, had to cut the prints in half to fit the 100 char rule
         max_dmg_index = enemy_dmg.index(max(enemy_dmg))
         min_dmg_index = enemy_dmg.index(min(enemy_dmg))
-        print(f"Most dangerous: {enemies_encountered[max_dmg_index].title()} ")
+        print(f"Most dangerous: {enemies_encountered[max_dmg_index].title()}", end = " ")
         print(f"gave {enemy_dmg[max_dmg_index]} damage")
-        print(f"Least dangerous: {enemies_encountered[min_dmg_index].title()}")
+        print(f"Least dangerous: {enemies_encountered[min_dmg_index].title()}", end = " ")
         print(f"gave {enemy_dmg[min_dmg_index]} damage")
         
         # Strongest and weakest enemies (by health points)
@@ -172,9 +178,9 @@ Weakest: Blight Beetle took 12 to defeat
         # Similarily to above I had to cut the prints in half to fit them properly
         max_health_index = enemy_healths.index(max(enemy_healths))
         min_health_index = enemy_healths.index(min(enemy_healths))
-        print(f"Strongest: {enemies_encountered[max_health_index].title()}")
+        print(f"Strongest: {enemies_encountered[max_health_index].title()}", end = " ")
         print(f"took {enemy_healths[max_health_index]} to defeat")
-        print(f"Weakest: {enemies_encountered[min_health_index].title()}") 
+        print(f"Weakest: {enemies_encountered[min_health_index].title()}", end = " ") 
         print(f"took {enemy_healths[min_health_index]} to defeat")
     else:
         print("No enemies encountered!")
@@ -193,14 +199,6 @@ print("As you head into the first clearing, a battle ensues.")
 
 ################################################
 # 5. Traverse the swamp
-hero_health = 50
-hero_power = 10  
-duck_status = True  
-
-enemies_encountered = []
-enemy_damages = []
-hero_damages = []
-
 # loop through all 10 clearings and with a 50% chance to encounter
 for clearing in range(1, 11):
     print(f"\nYou come to clearing {clearing} on your journey.")
