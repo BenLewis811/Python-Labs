@@ -36,6 +36,7 @@
 
 
 # Put any import statements here
+
 import random
 import numpy as np
 
@@ -120,13 +121,34 @@ print('''
                           Lab 7 - Forbidden Forest
                      -----------------------------------
 
-    
+The air grows heavy as you step from the murky swamp into the shadow of the Forbidden Forest.
+An unnatural stillness hangs between the skeletal trees, their once-vibrant leaves now brittle
+and brown. Your duck lets out a quiet quack, pressing close to your side as the last of the
+swamp's fog dissipates behind you.
+
+The hunched figure who guided you through the marshes suddenly straightens, her form shimmering
+like sunlight through leaves. With a fluid motion, she casts off her tattered cloak, revealing
+hair that flows like a willow's branches and eyes that glow with ancient wisdom.
+
+"I am Nyssa," she says, her voice both musical and mournful. "Guardian of these woods, now
+witness to their slow demise." She gestures to the dying trees around you. "Morvath the
+Malevolent has stolen the syn-tak - the heart of our forest. With each passing hour, he drains
+more of its power while the trees wither and my strength fades."
+
+She presses a small vial into your hand, its contents pulsing with golden light. "This is the
+last of the forest's essence. Use it wisely, for time runs short." As you pocket the vial,
+Nyssa's form flickers like a guttering candle. "We must know how long we have before the forest
+is lost forever. Will you help me calculate our remaining days?"
+
+The ground beneath your feet feels unnaturally warm, as if the earth itself is feverish. In
+the distance, an unnatural purple glow pulses from deep within the forest - Morvath's dark
+fortress. Ducky Momo nibbles at your sleeve, its beady eyes full of concern.
 
         -----------------------------------------------------------------------
 
-    ''')
+    ''') 
 
-"""
+""" #I decided to keep the same intro message as it is a rather simple and good introdrcution
 ################################################
 # 4. Run the forest health function
 
@@ -151,7 +173,27 @@ forest_lifespan = simulate_forest_health(forest)
 print(f"""
         -----------------------------------------------------------------------
 
-    
+ The final numbers appear before you in glowing runes. Your hands tremble as you turn to Nyssa,
+whose form has grown noticeably more translucent. "{forest_lifespan} days," you whisper. "The
+forest has {forest_lifespan} days before..." The words catch in your throat.
+
+Nyssa nods solemnly, her leaf-like hair rustling though there's no wind. "So little time," she
+murmurs. Then suddenly she straightens, her eyes flashing with renewed determination. "But
+enough! The path to Morvath's tower lies through the Valley of Whispers. Dangerous, yes, but
+with your skills and..." she smiles at your duck, "...this brave companion, we may yet succeed."
+
+Your Ducky Momo puffs its chest proudly at the praise.
+
+"The syn-tak rests in Morvath's obsidian vault," Nyssa continues. "We must retrieve it before
+the last tree falls, or all will be lost." She places a hand on your shoulder, her touch like
+sun-warmed bark. "Will you join me on this perilous quest?"
+
+You glance at the simulation results one last time - {forest_lifespan} days to save the forest,
+to save Nyssa, to save all of Coderia. Your duck meets your gaze and gives a determined nod.
+
+"Then let's begin," you say, tightening your grip on your Sword. The first light of dawn filters
+through the dying trees as you set off toward the Valley of Whispers, the countdown to the
+forest's doom echoing in your mind: {forest_lifespan} days remain.
     
     """)
 
