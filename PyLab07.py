@@ -115,7 +115,7 @@ def simulate_forest_health(forest):
 
 ################################################
 # 3. Display Opening Narrative
-"""
+
 print('''
 
                           Lab 7 - Forbidden Forest
@@ -148,7 +148,7 @@ fortress. Ducky Momo nibbles at your sleeve, its beady eyes full of concern.
 
     ''') 
 
-""" #I decided to keep the same intro message as it is a rather simple and good introdrcution
+ #I decided to keep the same intro message as it is a rather simple and good introdrcution
 ################################################
 # 4. Run the forest health function
 
@@ -174,8 +174,8 @@ print(f"""
         -----------------------------------------------------------------------
 
  The final numbers appear before you in glowing runes. Your hands tremble as you turn to Nyssa,
-whose form has grown noticeably more translucent. "{forest_lifespan} days," you whisper. "The
-forest has {forest_lifespan} days before..." The words catch in your throat.
+whose form has grown noticeably more translucent. "{forest_lifespan-1} days," you whisper. "The
+forest has {forest_lifespan-1} days before..." The words catch in your throat.
 
 Nyssa nods solemnly, her leaf-like hair rustling though there's no wind. "So little time," she
 murmurs. Then suddenly she straightens, her eyes flashing with renewed determination. "But
@@ -188,12 +188,12 @@ Your Ducky Momo puffs its chest proudly at the praise.
 the last tree falls, or all will be lost." She places a hand on your shoulder, her touch like
 sun-warmed bark. "Will you join me on this perilous quest?"
 
-You glance at the simulation results one last time - {forest_lifespan} days to save the forest,
+You glance at the simulation results one last time - {forest_lifespan-1} days to save the forest,
 to save Nyssa, to save all of Coderia. Your duck meets your gaze and gives a determined nod.
 
 "Then let's begin," you say, tightening your grip on your Sword. The first light of dawn filters
 through the dying trees as you set off toward the Valley of Whispers, the countdown to the
-forest's doom echoing in your mind: {forest_lifespan} days remain.
+forest's doom echoing in your mind: {forest_lifespan-1} days remain.
     
     """)
 
