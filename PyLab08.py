@@ -46,6 +46,17 @@ y = np.array([4,3.5,5.5,6,5,4,5])
 ################################################
 # 3. Function to plot the map
 def plot_map(loc,x,y,mapTitle, mapColor):
+    """
+    This function plots the map desired when called. 
+    It's parameters are:
+    loc: numpy array of the names of the locations
+    x: numpy array of the x values of the locations
+    y: numpy array of the y values of the locations
+    mapTitle: String containing the title of the map
+    mapColor: String containing the color value the map will be
+    The function is a void function and has no return value. After the function is called, it
+    will print the graph.
+    """
     plt.figure() 
     background_image = plt.imread("lab08-background.png")   
     plt.imshow(background_image, aspect='auto', extent=[0,8,0,8])
