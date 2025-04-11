@@ -6,8 +6,8 @@
   Partner 1:  Ben Lewis
   Partner 1s contributions: First plot, and total original distance calculations
 
-  Partner 2: 
-  Partner 2s contributions: 
+  Partner 2: Esten Odney
+  Partner 2s contributions: Completed the second plot, The closing narrative, and some debugging
   
   Date: 
       
@@ -58,12 +58,14 @@ def plot_map(loc,x,y,mapTitle, mapColor):
     will print the graph.
     """
     plt.figure() 
+    #Load and display background
     background_image = plt.imread("lab08-background.png")   
     plt.imshow(background_image, aspect='auto', extent=[0,8,0,8])
     plt.plot(x,y,color = mapColor,marker="*")
     plt.title(mapTitle)
     plt.xlabel("Days Journey")
     plt.ylabel("Days Journey")
+    plt.grid(True)
     plt.ylim(0, 8)
     plt.xlim(0, 8)
     
@@ -121,16 +123,47 @@ print(f"Total Distance: {totalDistance:.2f} miles")
 # in miles
 
 
+# Calculates distances and angle
+distances = [math.hypot(x[i+1]-x[i], y[i+1]-y[i]) for i in range(len(x)-1)]
+total_miles = sum(distances) * 10  # Converts to imperial miles
+angle_deg = (5/4) * total_miles
+angle_rad = math.radians(angle_deg)
 
-################################################
-# 7. Plot the final map
+# Calculates Grotto position from Forest (last point)
+grotto_x = x[-1] + 2.5 * math.cos(angle_rad)
+grotto_y = y[-1] + 2.5 * math.sin(angle_rad)
 
+# Append new location
+loc = np.append(loc, "Morvath's Grotto")
+x = np.append(x, grotto_x)
+y = np.append(y, grotto_y)
+
+# Verifies coordinates are within bounds
+print(f"Grotto coordinates: X: {grotto_x:.2f}, Y: {grotto_y:.2f} (must be 0-8)")
+input("Press Enter to show complete map...")
+
+# 7. Plot updated map with new coordinates
+plot_map(loc,x,y,
+         "Path to Morvath's Hidden Lair",  # Different title
+         "gold")  # Different color
 
 ################################################
 # 8. Tell the ending Story
 
 print(f"""
         -----------------------------------------------------------------------
+   With the map now displaying a glowing dotted line like a fantasy GPS, you mutter,
+"Should've brought snacks for this dramatic final walk." Ducky Momo looks up at you and 
+quacks, "If I wanted a mud bath, I’d have booked a spa day!" as you slosh through another 
+puddle that definitely wasn't on the map.
 
-        
+The "ancient stones" turn out to look suspiciously like a villain's Airbnb listing - 
+complete with ominous glowing pentagram welcome mat. "5/5 stars would summon dark forces 
+again," you joke nervously, while your duck hides behind a suspiciously normal-looking 
+shrub.
+
+With a deep breath and your duck sporting a tiny battle helmet, you declare: "Let's 
+get this over with before the local tavern closes for last call!" The Syntak better 
+be under that rock. That specific rock. No, the other rock.
+  
     """)
