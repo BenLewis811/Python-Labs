@@ -142,6 +142,8 @@ def magic_attack(hero_health, enemy_name, spell_name, spell_power):
     
     Returns:
     int: Updated hero health
+
+    Example magic_attack( 50, Morvath, Fireball, 5) returns -> 45
     """
     print(f"{enemy_name} attacks with {spell_name}! It deals {spell_power} damage.")
     hero_health -= spell_power
