@@ -109,12 +109,15 @@ def attack(power, enemy_name, enemy_health):
     """
     This is the attack function. It will print how much you attacked for, and how much health the
     enemy has left. If the enemy has no health it will print that the enemy is defeated
+
+    Parameters: Power, enemy_name, enemy_health.  
+
+    returns: enemy_health if the enemy is still alive after the attack, or 0 if it is slain. 
+    Both results are printed by the function. 
     Example: attack(5, 'Swamp Troll', 100) ->  returns: enemy_health = 95
     """
-    print(f"\nYou have {hero_health} health and Morvath the Malevolent has {enemy_health} health")
-    input("  ➤ Press enter to attack Morvath the Malevolent")
     attack = power * random.randint(1,6)
-    print(f"\nYou attacked {enemy_name} for {attack} damage")
+    print(f"You attacked {enemy_name} for {attack} damage")
 
     enemy_health = enemy_health - attack
     if enemy_health > 0:
@@ -140,7 +143,6 @@ def magic_attack(hero_health, enemy_name, spell_name, spell_power):
     Returns:
     int: Updated hero health
     """
-    print(input((f"\n  ⚔ {enemy_name} readies {spell_name}. Press Enter to defend...")))
     print(f"{enemy_name} attacks with {spell_name}! It deals {spell_power} damage.")
     hero_health -= spell_power
     hero_health = max(hero_health, 0)
@@ -150,29 +152,45 @@ def magic_attack(hero_health, enemy_name, spell_name, spell_power):
 
 #################################################
 # 7. Any other functions needed
-#Not a function, but for syntak 
-if hero_health <= 0 and enemy_health > 0:
+#For syntak 
+def grab_syntak(power, enemy_name, enemy_health):
+    """
+    This function is for when the hero hits 0 health. When it is called, it attacks Morvath with 
+    10x your normal damage.
+
+    Parameters: Power, enemy_name, enemy_health
+    This takes all the inputs needed for the attack function and calls the attack function while
+    multiplying the power by 10. 
+
+    Returns: none.  This is a void function that changes a global variable of enemy health. 
+
+    Example: grab_syntak(power, enemy_name, enemy_health) will set the variable enemy_health to a 
+    value of 100-500 points lower than it's current value. 
+    """
     print("\nYou crawl over to the altar, desperately reach up and grab the Syntak!")
     print("You feel a surge of ancient power coursing through you!")
     enemy_health = attack(power * 10, enemy_name, enemy_health)
+    
 
 #################################################
 # 8. Narratives and program run
 
 # display opening narrative
-print(read_text_file(opening_file))
-input("Press Enter to continue")
-print("\n➤ 📢 Ducky Momo lets out the mightiest quack of his life.\n")
+print(read_text_file(opening_file),"\n")
 
+print(f"You have {hero_health} health and Morvath has {enemy_health}\n")
 # run the battle
 spell_names, spell_damage = read_csv_file(spell_file)
 while hero_health > 0 and enemy_health > 0:
+
     # Hero's attack
+    x = input("Press Enter to Attack")
     enemy_health = attack(power, enemy_name, enemy_health)
     if enemy_health <= 0:
         break
     
     # Morvath's spell attack
+    x = input("Press Enter to Defend")
     if len(spell_names) > 0:
         idx = random.randint(0, len(spell_names)-1)
         spell = spell_names[idx]
@@ -183,12 +201,15 @@ while hero_health > 0 and enemy_health > 0:
         break
 
 if hero_health <= 0 and enemy_health > 0:
-    print("\nYou crawl over to the altar, desperately reach up and grab the Syntak!")
-    print("You feel a surge of ancient power coursing through you!")
-enemy_health = attack(power * 10, enemy_name, enemy_health)
+    grab_syntak(power,enemy_name, enemy_health)
+
 
 # display closing narrative
-print("\n" + read_text_file(closing_file))
+if(enemy_health > 0):
+    print("\n" + read_text_file(closing_file))
+else:
+    print("After a long, hard battle, you succumb to Morvath's attacks. Please run " \
+    "the program to try again.")
 
 
 #################################################
@@ -202,19 +223,21 @@ Improvement #1
 -----------------------------------
 What improvement would you add?
 
+Adding more options to the fight, such as different attacks and ways to defend. 
 
 What code would I need to write to make this work?
-
-
+Input statements to get what attack or defense the player wanted, and then either add to the 
+attack function and defense code or make more functions.
 
 Improvement #2
 -----------------------------------
 What improvement would you add?
 
+More imagery, instead of just text battles. 
 
 What code would I need to write to make this work?
-
-
+Matplotlib can be used to print images as graphs, so I could use that similar to how the magic 
+map was done in lab 8. 
 
 
 Improvement #3
