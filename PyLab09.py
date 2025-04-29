@@ -243,10 +243,10 @@ map was done in lab 8.
 Improvement #3
 -----------------------------------
 What improvement would you add?
-
+Making the battle a function instead of loose code. I think this would make the code look a little neater but would be a little harder to code. 
 
 What code would I need to write to make this work?
-
+Basic functions. 
 
 
 
