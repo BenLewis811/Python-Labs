@@ -19,7 +19,7 @@
 # 1. Imports
 import numpy as np
 import random
-import pandas as pd
+import csv
 
 ################################################
 # 2. Constants - filenames, hero stats etc
@@ -59,8 +59,6 @@ def read_text_file(filename):
 
 ################################################
 # 4. read_csv_file function
-import csv
-import numpy as np
 
 def read_csv_file(filename):
     """Reads a CSV file containing spell names and damage into NumPy arrays.
