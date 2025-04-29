@@ -23,8 +23,8 @@ import pandas as pd
 
 ################################################
 # 2. Constants - filenames, hero stats etc
-opening_file = 'opening.txt'
-closing_file = 'closing.txt'
+opening_file = 'opening29.txt'
+closing_file = 'closing29.txt'
 spell_file = 'spells_data.csv'
 hero_health = 100
 power = 10
@@ -111,8 +111,10 @@ def attack(power, enemy_name, enemy_health):
     enemy has left. If the enemy has no health it will print that the enemy is defeated
     Example: attack(5, 'Swamp Troll', 100) ->  returns: enemy_health = 95
     """
+    print(f"\nYou have {hero_health} health and Morvath the Malevolent has {enemy_health} health")
+    input("  ➤ Press enter to attack Morvath the Malevolent")
     attack = power * random.randint(1,6)
-    print(f"You attacked {enemy_name} for {attack} damage")
+    print(f"\nYou attacked {enemy_name} for {attack} damage")
 
     enemy_health = enemy_health - attack
     if enemy_health > 0:
@@ -138,6 +140,7 @@ def magic_attack(hero_health, enemy_name, spell_name, spell_power):
     Returns:
     int: Updated hero health
     """
+    print(input((f"\n  ⚔ {enemy_name} readies {spell_name}. Press Enter to defend...")))
     print(f"{enemy_name} attacks with {spell_name}! It deals {spell_power} damage.")
     hero_health -= spell_power
     hero_health = max(hero_health, 0)
@@ -147,7 +150,7 @@ def magic_attack(hero_health, enemy_name, spell_name, spell_power):
 
 #################################################
 # 7. Any other functions needed
-#For syntak 
+#Not a function, but for syntak 
 if hero_health <= 0 and enemy_health > 0:
     print("\nYou crawl over to the altar, desperately reach up and grab the Syntak!")
     print("You feel a surge of ancient power coursing through you!")
@@ -158,6 +161,8 @@ if hero_health <= 0 and enemy_health > 0:
 
 # display opening narrative
 print(read_text_file(opening_file))
+input("Press Enter to continue")
+print("\n➤ 📢 Ducky Momo lets out the mightiest quack of his life.\n")
 
 # run the battle
 spell_names, spell_damage = read_csv_file(spell_file)
