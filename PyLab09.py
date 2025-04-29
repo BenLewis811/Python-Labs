@@ -5,9 +5,14 @@
  ----------------------------
   Partner 1:  Esten Odney
   Partner 1s contributions:
+  Wrote the Battle similuation code.
+  Imported the AI code from part 2. 
 
   Partner 2: Ben Lewis
   Partner 2s contributions: 
+  Updated the read_csv_file(filename) function to not use pandas. 
+  Made the get_syntak function and updated docstrings. 
+  Wrote code improvement. 
   
   Date: 
       
@@ -84,7 +89,8 @@ def read_csv_file(filename):
                 try:
                     damage.append(int(row[1]))
                 except ValueError:
-                    print(f"Warning: Could not convert damage value '{row[1]}' to int. Skipping row.")
+                    print(f"Warning: Could not convert damage value '{row[1]}' to int. "
+                          "Skipping row.")
                     continue
 
         return np.array(spell_names, dtype=str), np.array(damage, dtype=int)
@@ -242,7 +248,8 @@ map was done in lab 8.
 Improvement #3
 -----------------------------------
 What improvement would you add?
-Making the battle a function instead of loose code. I think this would make the code look a little neater but would be a little harder to code. 
+Making the battle a function instead of loose code. I think this would make the code look a little 
+neater but would be a little harder to code. 
 
 What code would I need to write to make this work?
 Basic functions. 
